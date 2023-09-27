@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time Display</title>
+</head>
+<body>
+  
+    
+    <!-- Show Date Button -->
+    <button onclick="showDate()">Show Date</button>
+    <p id="dateOutput"></p>
+
+    <!-- Show Time Button -->
+    <button onclick="showTime()">Show Time</button>
+    <p id="timeOutput"></p>
+
+    <script>
+        function showDate() {
+            const currentDate = new Date();
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const formattedDate = currentDate.toLocaleDateString('en-US', options);
+            document.getElementById('dateOutput').textContent = formattedDate;
+        }
+
+        function showTime() {
+            const currentDate = new Date();
+            const formattedTime = currentDate.toString();
+            document.getElementById('timeOutput').textContent = formattedTime;
+        }
+    </script>
+</body>
+</html>

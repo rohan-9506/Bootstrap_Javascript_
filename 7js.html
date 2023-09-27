@@ -1,0 +1,51 @@
+<html>
+<head>
+    <script type="text/javascript">
+
+        var img = null;
+        var movingInterval = null; // Variable to store the interval ID
+        var initialLeft = 50; // Initial left position of the image
+        var maxLeft = 500; // Maximum left position to stop the loop
+
+        function init() {
+            img = document.getElementById('myimg');
+            img.style.position = 'relative';
+            img.style.left = initialLeft + 'px';
+        }
+
+        function moveRight() {
+            var currentLeft = parseInt(img.style.left);
+            if (currentLeft < maxLeft) {
+                img.style.left = currentLeft + 10 + 'px'; // Adjust the step size as needed
+            } else {
+                img.style.left = initialLeft + 'px'; // Reset the position to the initial left
+            }
+        }
+
+        function startMoving() {
+            // Start moving the image to the right at a regular interval
+            movingInterval = setInterval(moveRight, 100); // Adjust the interval as needed
+        }
+
+        function stopMoving() {
+            // Stop the image movement by clearing the interval
+            clearInterval(movingInterval);
+        }
+
+        window.onload = init;
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <img id="myimg" src="train1.png" />
+      
+            <p>Click the following buttons to handle the animations</p>
+            <input type="button" value="Start" onclick="startMoving();" />
+            <input type="button" value="Stop" onclick="stopMoving();" />
+      
+    </form>
+</body>
+
+</html>
